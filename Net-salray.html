@@ -1,0 +1,101 @@
+<html>
+<head>
+
+<style>
+.name
+{
+ border:1px solid black;
+ width:700;
+ height:200px;
+ margin:150px;
+ background-color:blue;
+ color:pink;
+ font-size:20px;
+ border-radius:30px;
+}
+
+</style>
+<script>
+
+
+function tax()
+
+{
+
+	var salary,tax, netsalary;
+	
+	salary = document.getElementById("sal").value;
+	
+	salary = parseInt(salary);
+	
+	 
+	
+	
+	
+	
+	   
+	if(salary>1000000)
+	 {
+		salary=salary-1000000;
+		tax= salary*30/100;
+ 		tax= tax + 0 + 25000 + 100000;
+	
+	 }
+	else if (salary>500000)
+      {
+	    salary=salary-500000;
+		tax= salary*20/100;
+		tax= tax + 0 + 25000;
+	  
+	  }
+	else if(salary>250000) 
+      {
+	  
+		salary=salary-250000;
+		tax= salary*10/100;
+	  
+	  }
+	else
+	  {
+		tax = salary*0/100;
+	  
+	  }
+	  
+	  
+     netsalary = salary-tax;
+     document.getElementById("ta").value = tax;
+	 document.getElementById("nets").value = netsalary;
+  
+}
+
+
+
+
+
+</script>
+</head>
+<body><center>
+<div class="name">
+<br><br>
+
+Salary(y)
+<input type="number" id="sal">
+<input style="background-color:pink;" type="button" value="Calculate" onClick=tax()>
+
+<br>
+<br>
+
+Income Tax : <input type="label" id="ta">
+ <br>
+ <br>
+Net Salary
+<input type="label" id="nets">
+
+</div>
+
+
+</center>
+</body>
+
+
+</html>

@@ -1,0 +1,143 @@
+<html>
+<head>
+<style>
+.A
+{
+background-color:blue;
+color:white;
+font-size:25px;
+padding:50px;
+}
+
+</style>
+<script>
+ function pay()	
+ {
+		var basicsalary,gsalary,gsalary2,DA,HRA,gro,LIC,tax=0,Netsalary=0;
+		
+		basicsalary = document.getElementById("in").value;
+		basicsalary = parseInt(basicsalary);
+ 
+		if(basicsalary>12000)
+		{  
+ 			DA= (basicsalary*90/100)*12;
+			HRA=(basicsalary*40/100)*12;
+ 			LIC= 8000;
+		}
+	 	else if(basicsalary>8000)
+		{   
+			DA= (basicsalary*80/100)*12;
+            HRA=(basicsalary*30/100)*12;
+            LIC= 4000;
+		}
+		else if(basicsalary>5000)
+		{
+			DA= (basicsalary*50/100)*12;
+            HRA=(basicsalary*20/100)*12;
+            LIC= 2000;
+		}
+		else if(basicsalary>0)
+		{
+			DA= (basicsalary*10/100)*12;
+            HRA=(basicsalary*10/100)*12;
+			
+            LIC= 1000;
+		}
+		else
+		{
+			
+		}
+		
+		year=basicsalary*12;
+		gro=year+DA+HRA;
+		gsalary=gro-LIC;
+		gsalary2 = gsalary;
+		
+	  if(gsalary>1000000)
+	 {
+		gsalary=gsalary-1000000;
+		tax= gsalary*30/100;
+ 		tax= tax + 0 + 25000 + 100000;
+	
+	 }
+	else if (gsalary>500000)
+      {
+	    gsalary=gsalary-500000;
+		tax= gsalary*20/100;
+		tax= tax + 0 + 25000;
+	  
+	  }
+	else if(gsalary>250000) 
+      {
+	  
+		gsalary=gsalary-250000;
+		tax= gsalary*10/100;
+	  
+	  }
+	else
+	  {
+		tax = gsalary*0/100;
+	  
+	  }
+	  
+	  Netsalary=gsalary2-tax;
+	
+	 document.getElementById("DA").value = DA;
+	 document.getElementById("year").value= year;
+	 document.getElementById("HRA").value = HRA;
+     document.getElementById("gro").value = gro;	 
+     document.getElementById("LIC").value = LIC;
+     document.getElementById("tax").value = tax;
+	 document.getElementById("net").value = Netsalary;
+	 
+	 }
+</script>
+</head>
+<body> <table cellpadding="10px" class="A" border="0" align="center">
+			<div>
+		<tr>	
+		      <td>Basic gsalary (Month)</td>
+			<td><input type="number" id="in"></td>
+			
+		
+        	
+
+		</tr>
+		<tr>
+			<td>Basic gsalary(year)</td>
+		<td>	<input type="number" id="year"></td>
+	   </tr>
+	   <tr>
+		<td>	DA</td>
+		<td>	<input type="number" id="DA"></td>
+		</tr>
+		<tr>
+			<td>HRA</td>
+			<td><input type="number" id="HRA"></td>
+			
+		</tr>
+		<tr>
+		<td>	gorss gsalary</td>
+		<td>	<input type="number" id="gro"></td>
+	  </tr>
+	  <tr>
+			<td>LIC</td>
+			<td><input type="number" id="LIC"></td>
+	 </tr>
+	 <tr>
+			<td>Tax</td>
+			<td><input type="number" id="tax"></td>
+	</tr>
+	<tr>
+			<td><b>Net gsalary</b></td>
+			<td><input type="text" id="net"></td>
+	</tr>
+        <tr><td colspan="2" align="center"><input type="button" value="Calculate" onclick=pay()></td></tr>
+			</div>
+
+		
+		
+</body>
+
+
+</html>
